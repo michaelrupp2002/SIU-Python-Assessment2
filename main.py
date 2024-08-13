@@ -1,25 +1,40 @@
-from problems import example
-# from problems import pb1, pb2, pb3
 
-def main():
-    pass
-    print('ding dong')
-    example.testFunc()
+# Online Python - IDE, Editor, Compiler, Interpreter
 
-    # Test Cases
+def replace_spaces(sentence, char):
+    newSentence = sentence.replace(' ',char)
 
-    # Problem #1: Replace Spaces
-    # sentence = "Test  This is a test   Testing "
-    # sentence2 = pb1.replace_spaces(sentence, "_")
-    # print(sentence2)
+    return (newSentence)
 
-    # Problem #2: Max Values
-    # print(pb2.max_values([-5, -2, -1, -11])) # -> [1, 2]  
+def max_values(numList):
+    maxnum1 = 0
+    maxnum2 = 0
+    for num in numList:
+        num = int(num)
+        if num > maxnum2:
+            maxnum1 = maxnum2
+            maxnum2 = num
+        elif num > maxnum1:
+            maxnum1 = num
+            
+    return(maxnum1, maxnum2)    
+    
+def youngest_student(studentList):
+    youngest = 1000
+    youngestname = ''
+    for name in studentList:
+        if int(studentList[name]) < youngest:
+            youngest = studentList[name]
+            youngestname = name
+        
+    return youngestname
 
-    # Problem #3: Youngest Student
-    # students = {"Alice": 18, "Bob": 20, "Charlie": 19, "David": 22, "Jay": 20}
-    # print(pb3.youngest_student(students))  # Expected output: "Alice"
 
+sentence = "Test  This is a test   Testing "
+sentence2 = replace_spaces(sentence, "_")
 
-if __name__ == '__main__':
-    main()
+print(sentence2)
+print(max_values([4, 7, 2, 8, 10, 9]))
+
+students = {"Alice": 19, "Bob": 20, "Charlie": 19, "David": 22, "Jay": 20}
+print(youngest_student(students))
